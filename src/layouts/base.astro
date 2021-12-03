@@ -1,6 +1,7 @@
 ---
 import { Site } from "@/config.ts";
 import { SEO } from "astro-seo";
+import SiteHeader from "@/components/SiteHeader.astro";
 
 const { title = null, description = Site.description, noindex = false, nofollow = false } = Astro.props.meta || Astro.props.content;
 
@@ -34,7 +35,8 @@ const computedTitle = (title ? `${title} | ` : "") + Site.title;
   <body class="text-gray-300 font-sans bg-gray-900">
     <a href="#site-main" class="sr-only focus:not-sr-only">Skip to main content</a>
 
-    <div id="site-wrapper">
+    <div id="site-wrapper" class="min-h-screen flex flex-col">
+      <SiteHeader />
       <slot />
     </div>
 
