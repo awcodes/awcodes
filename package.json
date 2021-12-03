@@ -1,0 +1,20 @@
+{
+  "name": "@awcodes/portfolio",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "yarn prettier -w ."
+  },
+  "devDependencies": {
+    "astro": "^0.21.9",
+    "astro-seo": "^0.4.2",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "prettier-plugin-astro": "^0.0.11",
+    "tailwindcss": "^2.2.19"
+  }
+}

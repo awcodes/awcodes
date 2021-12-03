@@ -1,0 +1,53 @@
+---
+import { Site } from "@/config.ts";
+import BaseLayout from "@/layouts/base.astro";
+import Logo from "@/components/Logo.astro";
+import Icon from "@/components/Icon.astro";
+
+const meta = {
+  title: null,
+  description: "You got the dime, I got the time.",
+};
+---
+
+<BaseLayout {meta}>
+  <div class="flex items-center justify-center min-h-screen text-gray-300 bg-gray-900">
+    <main class="text-center">
+      <div class="flex items-center justify-center divide-x divide-gray-600">
+        <div class="pr-4">
+          <img src="/images/me.jpg" alt="Adam Weston avatar" width="460" height="460" class="block w-24 h-24 mx-auto overflow-hidden rounded-full" />
+        </div>
+        <div class="pl-4">
+          <Logo classes="block w-auto h-24 text-primary-500" />
+        </div>
+      </div>
+
+      <h1 class="mt-8 text-2xl text-primary-500 font-display">I'm Adam Weston, and I develop websites.</h1>
+
+      <nav class="flex justify-center mt-6" aria-label="primary">
+        <ul class="flex items-center space-x-4">
+          <li>
+            <a href={Site.social.github} class="hover:text-primary focus:text-primary w-8 h-8 block">
+              <Icon name="github" />
+              <span class="sr-only">Github</span>
+            </a>
+          </li>
+          <li>
+            <a href={Site.social.twitter} class="hover:text-primary focus:text-primary w-8 h-8 block">
+              <Icon name="twitter" />
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href={Site.social.linkedin} class="hover:text-primary focus:text-primary w-8 h-8 block">
+              <Icon name="linkedin" />
+              <span class="sr-only">Linked In</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <p class="pt-4">Portfolio coming soon, stay tuned.</p>
+    </main>
+  </div>
+</BaseLayout>

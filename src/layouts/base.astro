@@ -1,0 +1,78 @@
+---
+import { Site } from "@/config.ts";
+import { SEO } from "astro-seo";
+
+const { title = null, description = Site.description, noindex = false, nofollow = false } = Astro.props.meta || Astro.props.content;
+
+const computedTitle = (title ? `${title} | ` : "") + Site.title;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <SEO title={computedTitle} {description} canonical={Astro.request.canonicalURL} {noindex} {nofollow} />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Denk+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href={Astro.resolve("../styles/global.css")} />
+  </head>
+
+  <body class="text-gray-300 font-sans bg-gray-900">
+    <a href="#site-main" class="sr-only focus:not-sr-only">Skip to main content</a>
+
+    <div id="site-wrapper">
+      <slot />
+    </div>
+
+    <!-- <script defer src="https://unpkg.com/@alpinejs/trap@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+    <script>
+      window.addEventListener("load", function () {
+        const ariaHelpersText = [
+          {
+            id: "new-window",
+            text: "Opens in a new window",
+          },
+        ];
+        const ariaHelpersElement = document.createElement("div");
+        ariaHelpersElement.style.display = "none";
+        ariaHelpersElement.setAttribute("id", "aria-helpers");
+        ariaHelpersText.forEach((helper) => {
+          let element = document.createElement("div");
+          element.setAttribute("id", helper.id);
+          element.innerText = helper.text;
+          ariaHelpersElement.appendChild(element);
+        });
+
+        document.body.appendChild(ariaHelpersElement);
+
+        const links = document.querySelectorAll("a[href^='https://'], a[href^='http://']");
+        const host = window.location.hostname;
+
+        const isInternalLink = (link) => new URL(link).hostname === host;
+
+        links.forEach((link) => {
+          if (isInternalLink(link)) return;
+
+          link.setAttribute("target", "_blank");
+          link.setAttribute("rel", "noopener");
+          link.setAttribute("aria-describedby", "new-window");
+        });
+      });
+    </script>
+  </body>
+</html>
