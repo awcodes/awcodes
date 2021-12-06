@@ -1,8 +1,6 @@
 ---
-import { Site } from "@/config.ts";
 import BaseLayout from "@/layouts/base.astro";
 import Logo from "@/components/Logo.astro";
-import Icon from "@/components/Icon.astro";
 
 const meta = {
   title: null,
@@ -11,23 +9,21 @@ const meta = {
 ---
 
 <BaseLayout {meta}>
-  <div class="flex flex-1 items-center justify-center">
-    <main class="text-center">
-      <div class="flex items-center justify-center divide-x divide-gray-600">
-        <div class="pr-4">
-          <div class="w-24 h-24 mx-auto overflow-hidden rounded-full relative">
-            <div class="absolute inset-0 bg-primary-500 bg-opacity-20 z-0"></div>
-            <img src="https://res.cloudinary.com/aw-codes/image/upload/f_auto,q_auto/v1638559490/me2.png" alt="Adam Weston avatar" width="460" height="460" class="block w-full h-full relative z-10" />
-          </div>
-        </div>
-        <div class="pl-4">
-          <Logo classes="block w-auto h-24 text-primary-500" />
+  <main class="text-center py-8 md:py-12">
+    <div class="flex items-center justify-center divide-x divide-gray-600">
+      <div class="pr-4">
+        <div class="w-24 h-24 mx-auto overflow-hidden rounded-full relative">
+          <div class="absolute inset-0 bg-primary-500 bg-opacity-20 z-0"></div>
+          <img src="https://res.cloudinary.com/aw-codes/image/upload/f_auto,q_auto/v1638559490/me2.png" alt="Adam Weston avatar" width="460" height="460" class="block w-full h-full relative z-10" />
         </div>
       </div>
+      <div class="pl-4">
+        <Logo classes="block w-auto h-24 text-primary-500" />
+      </div>
+    </div>
 
-      <h1 class="mt-8 text-2xl text-primary-500 font-display">I'm Adam Weston, and I develop websites.</h1>
+    <h1 class="mt-8 text-2xl text-primary-500 font-display">I'm Adam Weston, and I develop websites.</h1>
 
-      <p class="pt-4">Portfolio coming soon, stay tuned.</p>
-    </main>
-  </div>
+    <p class="pt-4">Guess that means I need to have a Portfolio and/or a blog of some kind. I'll get right on that, maybe.</p>
+  </main>
 </BaseLayout>

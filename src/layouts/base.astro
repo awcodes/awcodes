@@ -32,10 +32,10 @@ const computedTitle = (title ? `${title} | ` : "") + Site.title;
     <link rel="stylesheet" href={Astro.resolve("../styles/global.css")} />
   </head>
 
-  <body class="text-gray-300 font-sans bg-gray-900">
+  <body class="text-gray-300 font-sans bg-gray-900 antialiased">
     <a href="#site-main" class="sr-only focus:not-sr-only">Skip to main content</a>
 
-    <div id="site-wrapper" class="min-h-screen flex flex-col">
+    <div id="site-wrapper">
       <SiteHeader />
       <slot />
     </div>
